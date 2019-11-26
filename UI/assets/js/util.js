@@ -490,6 +490,7 @@
 									break;
 
 								case 'checkbox':
+									
 								case 'radio':
 									i.attr('checked', i.attr('defaultValue'));
 									break;

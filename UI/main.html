@@ -10,6 +10,38 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type = "text/javascript">
+			function select3_checker(){
+				var selectList = document.getElementsByName('musicCheckBox');
+				var selectNum = 0;
+				var select3_checker = false;
+				var checkBoxValue = new Array();
+				var index = 0;
+
+				for(var i=0; i<selectList.length; i++){
+					if(selectList[i].checked)
+						selectNum++;
+				}
+				if(selectNum == 3){
+					select3_checker = true;
+				}
+				
+				//TODO 영은 여기서 입력받은 checkboxvalue 넣어주는거야
+				if(select3_checker) {
+					$('input[name="musicCheckBox"]:checked').each(function(){
+						checkBoxValue[index] = $(this).val();
+						alert(checkBoxValue[index]);
+						index++;
+						//checkBoxValue 배열에 차곡차곡 들어가있어
+						//지금 checkbox 값을 임의로 music1234로 해놔서 값이 music1234 나올거야
+					});
+					return false;
+				}
+				else {
+					alert("음악 장르를 3개 선택해주세요");
+				}
+			}
+		</script>
 	</head>
 	<body>
 
@@ -38,18 +70,40 @@
 				<div class="inner">
 					<article class="box">
 						<header>
-							<h2>Choose the music Preference</h2>
+							<h2>Choose 3 music Preferences</h2>
 							<p></p>
 						</header>
 						<div class="content">
-							<p>여기에 콤보박스 넣어야 해 이거 match to parent 레이아웃이라서 염병 사이즈가 너무 가변적이야 이건 양채우기용 쓰레기값ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ아 결괏값 버튼은 result.html로 지정해놨어 아니면 스크롤 내려보면 화면 하나 더 있는데 여기서 결괏값 띄워줘도 되고ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ아니 얼마나 쳐야지 칸이 맞아지는거냐 미친 매치투 부모님ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
+							<div class="6u$ 12u$(small)">
+								<input type="checkbox" id="human1" name="musicCheckBox" value = "music1">
+								<label for="human1">music1</label>
+							</div>
+							<div class="6u$ 12u$(small)">
+									<input type="checkbox" id="human2" name="musicCheckBox" value = "music2">
+									<label for="human2">music2</label>
+								</div>
+							<div class="6u$ 12u$(small)">
+									<input type="checkbox" id="human3" name="musicCheckBox" value = "music3">
+									<label for="human3">music3</label>
+								</div>
+							<div class="6u$ 12u$(small)">
+								<input type="checkbox" id="human4" name="musicCheckBox" value = "music4">
+								<label for="human4">music4</label>
+							</div>
+							<div class="6u$ 12u$(small)">
+									<input type="checkbox" id="human5" name="musicCheckBox" value = "music5">
+									<label for="human5">music5</label>
+							</div>
 						</div>
 						<footer>
-							<a href="#two" class="button alt">Result</a>
+							<a href="javascript:select3_checker();" class="button alt">Result</a>
 						</footer>
 					</article>
 				</div>
 			</section>
+
+
+
 
 		<!-- Two -->
 			<section id="two" class="wrapper post bg-img" data-bg="banner4.jpg">
@@ -68,44 +122,6 @@
 					</article>
 				</div>
 			</section>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-
-					<h2>Contact Me</h2>
-
-					<form action="#" method="post">
-
-						<div class="field half first">
-							<label for="name">Name</label>
-							<input name="name" id="name" type="text" placeholder="Name">
-						</div>
-						<div class="field half">
-							<label for="email">Email</label>
-							<input name="email" id="email" type="email" placeholder="Email">
-						</div>
-						<div class="field">
-							<label for="message">Message</label>
-							<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-						</div>
-						<ul class="actions">
-							<li><input value="Send Message" class="button alt" type="submit"></li>
-						</ul>
-					</form>
-
-					<ul class="icons">
-						<li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
-					</ul>
-
-					<div class="copyright">
-						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-					</div>
-
-				</div>
-			</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
