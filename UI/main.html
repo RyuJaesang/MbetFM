@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<!--
+	Road Trip by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>APP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type = "text/javascript">
+			function select3_checker(){
+				var selectList = document.getElementsByName('musicCheckBox');
+				var selectNum = 0;
+				var select3_checker = false;
+				var checkBoxValue = new Array();
+				var index = 0;
+
+				for(var i=0; i<selectList.length; i++){
+					if(selectList[i].checked)
+						selectNum++;
+				}
+				if(selectNum == 3){
+					select3_checker = true;
+				}
+
+				//TODO 영은 여기서 입력받은 checkboxvalue 넣어주는거야
+				if(select3_checker) {
+					$('input[name="musicCheckBox"]:checked').each(function(){
+						checkBoxValue[index] = $(this).val();
+						index++;
+						location.href="#two";
+
+						//checkBoxValue 배열에 차곡차곡 들어가있어
+						//지금 checkbox 값을 임의로 music1234로 해놔서 값이 music1234 나올거야
+					});
+					const userAction = async () => {
+						var url = 'http://127.0.0.1:3000/?first='+checkBoxValue[0]+'&second='+checkBoxValue[1]+'&third='+checkBoxValue[2]
+  					const response = await fetch(url);
+  					const myresult = await response.text();
+						console.log(myresult)
+						return myresult
+					}
+					userAction().then(data=>{
+						result = data.split(',')
+						document.getElementById('fashion_result').innerText = result[0]
+						document.getElementById('art_result').innerText = result[1]
+						document.getElementById('exhibition_result').innerText = result[2]
+					});
+					return false;
+				}
+				else {
+					alert("음악 장르를 3개 선택해주세요");
+				}
+			}
+		</script>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="main.html"> APP <span>by B.I team #6</span></a></div>
+			</header>
+
+		<!-- Banner -->
+		<!--
+			Note: To show a background image, set the "data-bg" attribute below
+			to the full filename of your image. This is used in each section to set
+			the background image.
+		-->
+			<section id="banner" class="bg-img" data-bg="banner_begin_again.png">
+				<div class="inner">
+					<header>
+						<h1>Association Playlist and Preference</h1>
+					</header>
+				</div>
+				<a href="#one" class="more">Start</a>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper post bg-img" data-bg="banner2.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>Choose 3 music Preferences</h2>
+							<p></p>
+						</header>
+						<div class="content">
+							<div class="6u$ 12u$(xlarge)">
+								<input type="checkbox" id="human1" name="musicCheckBox" value = "Pop (팝)">
+								<label for="human1">Pop (팝)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human2" name="musicCheckBox" value = "Idol (아이돌)">
+									<label for="human2">Idol (아이돌)</label>
+								</div>
+							<div class="6u$ 12u$(xlarge)" style="float: left;">
+									<input type="checkbox" id="human3" name="musicCheckBox" value = "Ballad (발라드)">
+									<label for="human3">Ballad (발라드)</label>
+								</div>
+							<div class="6u$ 12u$(xlarge)">
+								<input type="checkbox" id="human4" name="musicCheckBox" value = "Dance (댄스)">
+								<label for="human4">Dance (댄스)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human5" name="musicCheckBox" value = "Rap/ Hip Hop (랩/힙합)">
+									<label for="human5">Rap/ Hip Hop (랩/힙합)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human6" name="musicCheckBox" value = "R&B / Soul (R&B/소울)">
+									<label for="human6">R&B / Soul (R&B/소울)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human7" name="musicCheckBox" value = "Indie (인디)">
+									<label for="human7">Indie (인디)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human8" name="musicCheckBox" value = "Rock / Metal (락/메탈)">
+									<label for="human8">Rock / Metal (락/메탈)</label>
+							</div>
+							<div class="6u$ 12u$(xlarge)">
+									<input type="checkbox" id="human9" name="musicCheckBox" value = "Trot (트로트)">
+									<label for="human9">Trot (트로트)</label>
+							</div>
+						</div>
+						<footer>
+							<a href="javascript:select3_checker();", href="#two" class="button alt">Result</a>
+						</footer>
+					</article>
+				</div>
+			</section>
+
+
+
+
+		<!-- Two -->
+			<section id="two" class="wrapper post bg-img" data-bg="banner4.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>Fashion Recommend</h2>
+						</header>
+						<div class="content">
+							<p id='fashion_result'>여기에 띄우면 됨</p>
+						</div>
+						<header>
+								<h2>Art Performance Recommend</h2>
+							</header>
+							<div class="content">
+								<p id='art_result'>여기에 띄우면 됨</p>
+							</div>
+							<header>
+									<h2>Exhibition Recommend</h2>
+								</header>
+								<div class="content">
+									<p id='exhibition_result'>여기에 띄우면 됨</p>
+								</div>
+						<footer>
+							<a href="https://github.com/RyuJaesang/BI_TeamProject" class="button alt">Our Team Git repo</a>
+						</footer>
+					</article>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
