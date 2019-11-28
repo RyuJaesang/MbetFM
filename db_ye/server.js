@@ -35,7 +35,7 @@ app.get('/', function(req, res){
               return
             }
             if (rows.length > 0 ) {
-              res.send('casual/ workwear/ street'+','+rows[0].performance_genre+','+rows2[0].exhibitions_genre)
+              res.send('Casual / Workwear / Street'+','+rows[0].performance_genre+','+rows2[0].exhibitions_genre)
             }else{
               res.send('서버에러','결과가','엄서용')
             }
