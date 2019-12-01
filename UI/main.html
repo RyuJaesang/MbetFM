@@ -25,18 +25,41 @@
 				if(selectNum == 3){
 					select3_checker = true;
 				}
+<<<<<<< HEAD
 				
+=======
+
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 				//TODO 영은 여기서 입력받은 checkboxvalue 넣어주는거야
 				if(select3_checker) {
 					$('input[name="musicCheckBox"]:checked').each(function(){
 						checkBoxValue[index] = $(this).val();
+<<<<<<< HEAD
 						alert(checkBoxValue[index]);
+=======
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 						index++;
 						location.href="#two";
 
 						//checkBoxValue 배열에 차곡차곡 들어가있어
 						//지금 checkbox 값을 임의로 music1234로 해놔서 값이 music1234 나올거야
 					});
+<<<<<<< HEAD
+=======
+					const userAction = async () => {
+						var url = 'http://127.0.0.1:3000/?first='+checkBoxValue[0]+'&second='+checkBoxValue[1]+'&third='+checkBoxValue[2]
+  					const response = await fetch(url);
+  					const myresult = await response.text();
+						console.log(myresult)
+						return myresult
+					}
+					userAction().then(data=>{
+						result = data.split(',')
+						document.getElementById('fashion_result').innerText = result[0]
+						document.getElementById('art_result').innerText = result[1]
+						document.getElementById('exhibition_result').innerText = result[2]
+					});
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 					return false;
 				}
 				else {
@@ -97,8 +120,13 @@
 									<label for="human5">Rap/ Hip Hop (랩/힙합)</label>
 							</div>
 							<div class="6u$ 12u$(xlarge)">
+<<<<<<< HEAD
 									<input type="checkbox" id="human6" name="musicCheckBox" value = "R&B / Soul (R&B/소울)">
 									<label for="human6">R&B / Soul (R&B/소울)</label>
+=======
+									<input type="checkbox" id="human6" name="musicCheckBox" value = "RnB / Soul (RnB/소울)">
+									<label for="human6">RnB / Soul (RnB/소울)</label>
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 							</div>
 							<div class="6u$ 12u$(xlarge)">
 									<input type="checkbox" id="human7" name="musicCheckBox" value = "Indie (인디)">
@@ -131,19 +159,31 @@
 							<h2>Fashion Recommend</h2>
 						</header>
 						<div class="content">
+<<<<<<< HEAD
 							<p>여기에 띄우면 됨</p>
+=======
+							<p id='fashion_result'>여기에 띄우면 됨</p>
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 						</div>
 						<header>
 								<h2>Art Performance Recommend</h2>
 							</header>
 							<div class="content">
+<<<<<<< HEAD
 								<p>여기에 띄우면 됨</p>
+=======
+								<p id='art_result'>여기에 띄우면 됨</p>
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 							</div>
 							<header>
 									<h2>Exhibition Recommend</h2>
 								</header>
 								<div class="content">
+<<<<<<< HEAD
 									<p>여기에 띄우면 됨</p>
+=======
+									<p id='exhibition_result'>여기에 띄우면 됨</p>
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
 								</div>
 						<footer>
 							<a href="https://github.com/RyuJaesang/BI_TeamProject" class="button alt">Our Team Git repo</a>
@@ -161,4 +201,8 @@
 			<script src="assets/js/main.js"></script>
 
 	</body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5483304d92b3c40c48b271f6726a62d2da057847
